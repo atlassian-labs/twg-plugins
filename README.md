@@ -43,6 +43,19 @@ devin plugins install atlassian-labs/twg-plugins
 pi install git:github.com/atlassian-labs/twg-plugins
 ```
 
+### OpenCode
+
+Add the npm plugin to `opencode.json`, then restart OpenCode:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "@atlassian/opencode-twg"
+  ]
+}
+```
+
 ### Hermes Agent
 
 ```bash
@@ -53,7 +66,7 @@ Cursor and Qoder can ingest their repository manifests directly. Other skill-cap
 
 ## Setup
 
-Install the plugin for your coding agent, then run `/twg-setup` to install or verify TWG CLI and sign in.
+Install the plugin for your coding agent, then run `/twg-setup` to install or verify TWG CLI and sign in. In OpenCode, ask naturally to set up or repair TWG; the `twg_setup` tool supplies the same generated guidance.
 
 The package contains no CLI binary, runtime wrapper, or credentials. The installed `twg` CLI owns execution and authentication.
 

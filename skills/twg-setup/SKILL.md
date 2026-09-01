@@ -7,7 +7,7 @@ allowed-tools:
 
 # TWG Setup
 
-Recognized installer hosts: `claude-code`, `codex`, `copilot`, `cursor`, `devin`, `gemini`, `hermes`, `pi`, `qoder`.
+Recognized installer hosts: `claude-code`, `codex`, `copilot`, `cursor`, `devin`, `gemini`, `hermes`, `intellij`, `opencode`, `pi`, `qoder`, `vscode`.
 
 ## Unix / macOS
 
@@ -159,6 +159,8 @@ at setup or ask the user to choose a new task.
 
 Only when the user's request was setup alone, offer a few useful TWG prompts:
 
-- Summarize my work during the past month.
-- What PRs are waiting on me, and which reviews are stale?
-- I'm taking over on-call. Give me incidents, risks, runbooks, and follow-ups.
+- Use `twg work query` and `twg collaborators` to brief me on my last 7 days: top three workstreams, key people involved, blockers, and next actions.
+- I was out for [N days]. Catch me up on [topic]: material changes, decisions, blockers, conversations I should respond to, and my top three next actions.
+- Who should I talk to about [topic]? Identify the owner and up to three experts, explain why each is relevant, and tell me whom to contact first.
+- What's the latest status of [project]? Include the owner, last update, blockers or risks, and next milestone.
+- Find the three most useful current design docs or PRDs for [topic]. Explain what each establishes and flag stale or conflicting guidance.

@@ -1,0 +1,50 @@
+name: Publish OpenCode package
+
+on:
+  push:
+    tags:
+      - "opencode-v*"
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out tagged source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Require a tag from main
+        shell: bash
+        run: |
+          git fetch --no-tags origin "refs/heads/main:refs/remotes/origin/main"
+          git merge-base --is-ancestor "$GITHUB_SHA" refs/remotes/origin/main
+
+      - name: Verify tag matches package version
+        shell: bash
+        run: |
+          package_version="$(node -p "require('./opencode/package.json').version")"
+          test "$GITHUB_REF_NAME" = "opencode-v${package_version}"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Validate npm package contents
+        working-directory: opencode
+        run: npm pack --dry-run
+
+      - name: Get Artifactory publish token
+        id: publish-token
+        uses: atlassian-labs/artifact-publish-token@v1.0.1
+        with:
+          output-modes: npm
+
+      - name: Publish through Artifactory npm-public
+        working-directory: opencode
+        run: npm publish --userconfig="$GITHUB_WORKSPACE/.npmrc-public" --registry="https://packages.atlassian.com/api/npm/npm-public/"
