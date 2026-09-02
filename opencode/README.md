@@ -27,6 +27,6 @@ The generated guidance tells the agent to verify the completed setup with `twg d
 
 ## Maintainer release
 
-Publish only through the repository's `Publish OpenCode package` GitHub workflow. It sends the package to Atlassian Artifactory's `npm-public` repository for controlled forwarding to npmjs. Do not publish directly to `registry.npmjs.org`.
+Create and push `opencode-v<package-version>` from an approved commit on `main`, then run the repository's `Publish OpenCode package` GitHub workflow from `main` with that tag as the `release_tag` input. The workflow validates and checks out the tagged commit before sending the package to Atlassian Artifactory's `npm-public` repository for controlled forwarding to npmjs. Do not publish directly to `registry.npmjs.org`.
 
 Learn more: https://developer.atlassian.com/cloud/twg-cli/

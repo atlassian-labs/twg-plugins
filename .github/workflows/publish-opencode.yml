@@ -1,9 +1,14 @@
 name: Publish OpenCode package
 
+run-name: Publish OpenCode package ${{ inputs.release_tag }}
+
 on:
-  push:
-    tags:
-      - "opencode-v*"
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Existing OpenCode release tag, for example opencode-v0.1.0
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -13,27 +18,39 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out tagged source
+      - name: Check out main workflow source
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Require a tag from main
+      - name: Require main and check out tagged release
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
         shell: bash
         run: |
+          test "$GITHUB_REF" = "refs/heads/main"
+          if [[ ! "$RELEASE_TAG" =~ ^opencode-v[0-9]+[.][0-9]+[.][0-9]+(-[0-9A-Za-z.-]+)?([+][0-9A-Za-z.-]+)?$ ]]; then
+            echo "release_tag must be an OpenCode SemVer tag such as opencode-v0.1.0" >&2
+            exit 2
+          fi
           git fetch --no-tags origin "refs/heads/main:refs/remotes/origin/main"
-          git merge-base --is-ancestor "$GITHUB_SHA" refs/remotes/origin/main
-
-      - name: Verify tag matches package version
-        shell: bash
-        run: |
-          package_version="$(node -p "require('./opencode/package.json').version")"
-          test "$GITHUB_REF_NAME" = "opencode-v${package_version}"
+          git fetch --no-tags origin "refs/tags/${RELEASE_TAG}:refs/tags/${RELEASE_TAG}"
+          release_commit="$(git rev-list -n 1 "refs/tags/${RELEASE_TAG}")"
+          git merge-base --is-ancestor "$release_commit" refs/remotes/origin/main
+          git checkout --detach "$release_commit"
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "24"
+
+      - name: Verify tag matches package version
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: |
+          package_version="$(node -p "require('./opencode/package.json').version")"
+          test "$RELEASE_TAG" = "opencode-v${package_version}"
 
       - name: Validate npm package contents
         working-directory: opencode
