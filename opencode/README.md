@@ -17,8 +17,6 @@ Add the npm package to the `plugin` array in `opencode.json`:
 
 Restart OpenCode, then ask it to set up Teamwork Graph, install `twg`, or repair the TWG setup. OpenCode discovers `twg_setup` from the request; there is no slash command.
 
-For unpublished development builds produced from the `twg-cli` source repository, run `pnpm plugin:dev:install`. It deploys the package to `~/.config/opencode/twg/` and creates the direct-discovery loader `~/.config/opencode/plugins/twg.ts` without requiring an OpenCode executable on `PATH`. Pass `--opencode-config-dir "$PWD/.opencode"` for project-local discovery.
-
 ## Security and runtime boundary
 
 The plugin returns generated guidance only. It does not install software, execute `twg`, call the Teamwork Graph API, collect credentials, implement OAuth, or run unattended login flows. The user must approve installation, and interactive setup or login runs in a controlling terminal owned by the existing TWG CLI.
