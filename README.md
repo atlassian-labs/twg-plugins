@@ -56,6 +56,10 @@ Add the npm plugin to `opencode.json`, then restart OpenCode:
 }
 ```
 
+### Grok Build
+
+In Grok Build, enter `/plugin` or `/marketplace` to open the plugin browser, select `atlassian-twg-cli`, and press `i` to install.
+
 ### Hermes Agent
 
 ```bash

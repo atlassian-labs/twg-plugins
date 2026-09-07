@@ -1,0 +1,23 @@
+{
+  "name": "atlassian-twg-cli",
+  "version": "1.0.12",
+  "description": "Teamwork Graph CLI is Atlassian's agent-first interface to your entire work context: Jira issues, Confluence pages, Bitbucket PRs, along with your connected third-party data sources. Purpose-built for coding agents like Grok Build, and powered by Atlassian's context graph. Run /twg-setup after install to connect Atlassian Teamwork Graph CLI to Grok Build.",
+  "author": {
+    "name": "Atlassian",
+    "url": "https://www.atlassian.com"
+  },
+  "homepage": "https://developer.atlassian.com/cloud/twg-cli/",
+  "repository": "https://github.com/atlassian-labs/twg-plugins",
+  "license": "Apache-2.0",
+  "keywords": [
+    "twg",
+    "teamwork graph",
+    "teamwork graph cli",
+    "atlassian",
+    "jira",
+    "confluence",
+    "bitbucket"
+  ],
+  "logo": "assets/twg-logo.png",
+  "skills": "./skills/"
+}
