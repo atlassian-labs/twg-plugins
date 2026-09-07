@@ -1,6 +1,6 @@
 ---
 name: twg-setup
-description: Install, update, authenticate, or repair `twg` for your coding agent, including missing CLI or skills and doctor/auth follow-up. TWG gives your coding agent grounded work context across Jira, Confluence, Bitbucket, JSM, Assets, Slack, Google Drive, and more, so it can connect tickets, docs, code, people, and decisions; surface risks and dependencies; summarize progress; and keep work moving.
+description: Install, upgrade, authenticate, or repair `twg` for your coding agent, including missing CLI or skills and doctor/auth follow-up. TWG gives your coding agent grounded work context across Jira, Confluence, Bitbucket, JSM, Assets, Slack, Google Drive, and more, so it can connect tickets, docs, code, people, and decisions; surface risks and dependencies; summarize progress; and keep work moving.
 allowed-tools: Bash
 ---
 
