@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0
+
+- Added a fresh-install setup notification when Teamwork Graph CLI is missing.
+
 ## 0.1.1
 
 - Improved how the plugin launches Teamwork Graph CLI setup.

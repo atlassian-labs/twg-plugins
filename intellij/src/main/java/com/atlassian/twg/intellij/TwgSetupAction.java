@@ -22,6 +22,10 @@ public final class TwgSetupAction extends DumbAwareAction {
             return;
         }
 
+        requestSetup(project);
+    }
+
+    static void requestSetup(@NotNull Project project) {
         int choice = Messages.showYesNoDialog(
                 project,
                 CONSENT_MESSAGE,

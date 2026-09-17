@@ -1,10 +1,17 @@
 import * as vscode from "vscode";
+import { refreshTwgCliAvailability } from "./cli-state";
 import { installerCommandFor } from "./installer";
 
 const SETUP_COMMAND = "twg.setup";
+const REFRESH_CLI_STATUS_COMMAND = "twg.refreshCliStatus";
 const CONTINUE = "Continue";
 
 export function activate(context: vscode.ExtensionContext): void {
+  const refreshCliAvailability = () =>
+    refreshTwgCliAvailability((key, available) =>
+      vscode.commands.executeCommand("setContext", key, available)
+    );
+
   context.subscriptions.push(
     vscode.commands.registerCommand(SETUP_COMMAND, async () => {
       const choice = await vscode.window.showWarningMessage(
@@ -26,8 +33,11 @@ export function activate(context: vscode.ExtensionContext): void {
       );
       terminal.show();
       terminal.sendText(installerCommandFor(process.platform), true);
-    })
+    }),
+    vscode.commands.registerCommand(REFRESH_CLI_STATUS_COMMAND, refreshCliAvailability)
   );
+
+  void refreshCliAvailability();
 }
 
 export function deactivate(): void {

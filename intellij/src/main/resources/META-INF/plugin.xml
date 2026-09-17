@@ -5,10 +5,16 @@
 
     <description><![CDATA[
         <p>
-            Bring your Atlassian work context into JetBrains IDEs with Teamwork Graph CLI.
-            Access Jira issues, Confluence pages, Bitbucket pull requests, and other connected
-            work data from your terminal and coding agents.
+            Teamwork Graph CLI is Atlassian's agent-first interface to your entire work context:
+            Jira issues, Confluence pages, Bitbucket pull requests, and connected third-party data.
         </p>
+        <p>Use it from your terminal or coding agent to:</p>
+        <ul>
+            <li>Search connected work and find the most relevant context.</li>
+            <li>Map ownership, experts, dependencies, and related work.</li>
+            <li>Summarize status, triage reviews, prepare handoffs, and update work.</li>
+        </ul>
+        <p>Try: <em>"What PRs are waiting on me, and which reviews are stale?"</em></p>
         <p>
             Run <strong>TWG: Set Up</strong> from Find Action or the Tools menu. The plugin opens
             a visible, interactive terminal and starts the official installer after you confirm.
@@ -22,12 +28,23 @@
 
     <change-notes><![CDATA[
         <ul>
-            <li>Improved how the plugin launches Teamwork Graph CLI setup.</li>
+            <li>Added fresh-install onboarding with a direct Teamwork Graph CLI setup action.</li>
         </ul>
     ]]></change-notes>
 
     <depends>com.intellij.modules.platform</depends>
     <depends>org.jetbrains.plugins.terminal</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="Teamwork Graph setup" displayType="BALLOON"/>
+        <postStartupActivity implementation="com.atlassian.twg.intellij.TwgOnboardingActivity"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener
+                class="com.atlassian.twg.intellij.TwgPluginLifecycleListener"
+                topic="com.intellij.ide.plugins.DynamicPluginListener"/>
+    </applicationListeners>
 
     <actions>
         <action

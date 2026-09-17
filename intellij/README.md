@@ -4,6 +4,9 @@ Bring your Atlassian work context into JetBrains IDEs with Teamwork Graph CLI.
 It gives you access to Jira issues, Confluence pages, Bitbucket pull requests,
 and other connected work data from your terminal and coding agents.
 
+After a fresh installation, the plugin shows a one-time setup notification when
+Teamwork Graph CLI is not yet available.
+
 ## Set up Teamwork Graph
 
 1. Open **Find Action** (`Cmd+Shift+A` on macOS or `Ctrl+Shift+A` on Windows
@@ -11,6 +14,20 @@ and other connected work data from your terminal and coding agents.
 2. Select **TWG: Set Up**.
 3. Review the confirmation, then select **Continue**.
 4. Complete the installation and sign-in steps in the **TWG Setup** terminal.
+
+## What Teamwork Graph CLI does
+
+Teamwork Graph CLI is Atlassian's agent-first interface to your entire work
+context. Use it from your terminal or coding agent to:
+
+- Search Jira, Confluence, JSM, Assets, Bitbucket, goals, projects, and
+  connected data.
+- Map ownership, experts, dependencies, and related work.
+- Summarize status, triage reviews, and prepare handoffs.
+- Create and update work without losing the context behind it.
+
+For example, ask your coding agent: “What PRs are waiting on me, and which
+reviews are stale?”
 
 ## What the plugin does
 

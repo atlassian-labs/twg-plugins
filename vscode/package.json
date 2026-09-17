@@ -1,8 +1,8 @@
 {
   "name": "twg-vscode",
   "displayName": "Atlassian Teamwork Graph CLI",
-  "description": "Set up Atlassian Teamwork Graph CLI from an interactive VS Code terminal.",
-  "version": "0.1.1",
+  "description": "Bring Jira, Confluence, Bitbucket, and connected work context into VS Code and coding agents with Atlassian Teamwork Graph CLI.",
+  "version": "0.2.0",
   "publisher": "atlassian",
   "license": "SEE LICENSE IN LICENSE.txt",
   "homepage": "https://developer.atlassian.com/cloud/twg-cli/",
@@ -32,6 +32,9 @@
     "theme": "light"
   },
   "main": "./dist/extension.js",
+  "activationEvents": [
+    "onWalkthrough:twg.getStarted"
+  ],
   "extensionKind": [
     "workspace"
   ],
@@ -41,6 +44,55 @@
         "command": "twg.setup",
         "title": "TWG: Set Up",
         "category": "Teamwork Graph"
+      },
+      {
+        "command": "twg.refreshCliStatus",
+        "title": "TWG: Refresh CLI Status",
+        "category": "Teamwork Graph"
+      }
+    ],
+    "walkthroughs": [
+      {
+        "id": "twg.getStarted",
+        "title": "Teamwork Graph: Get Started",
+        "description": "Connect your terminal and coding agents to Atlassian work context.",
+        "steps": [
+          {
+            "id": "twg.setupMissing",
+            "title": "Set up Teamwork Graph CLI",
+            "description": "Teamwork Graph CLI is not set up in this environment.\n[Install Teamwork Graph CLI](command:twg.setup)\n\nFinished installing? [Check again](command:twg.refreshCliStatus)",
+            "media": {
+              "markdown": "walkthrough/setup.md"
+            },
+            "completionEvents": [
+              "onContext:twg.cliAvailable"
+            ],
+            "when": "!twg.cliAvailable"
+          },
+          {
+            "id": "twg.setupDetected",
+            "title": "Teamwork Graph CLI detected",
+            "description": "The `twg` executable is available in this environment.\n[Repair or finish setup](command:twg.setup)",
+            "media": {
+              "markdown": "walkthrough/setup.md"
+            },
+            "completionEvents": [
+              "onContext:twg.cliAvailable"
+            ],
+            "when": "twg.cliAvailable"
+          },
+          {
+            "id": "twg.explore",
+            "title": "Bring work context into your agent",
+            "description": "Use Teamwork Graph CLI to discover, understand, and act on connected work.\n[Explore Teamwork Graph CLI](https://developer.atlassian.com/cloud/twg-cli/)",
+            "media": {
+              "markdown": "walkthrough/use-twg.md"
+            },
+            "completionEvents": [
+              "onLink:https://developer.atlassian.com/cloud/twg-cli/"
+            ]
+          }
+        ]
       }
     ]
   },
