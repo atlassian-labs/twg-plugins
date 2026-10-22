@@ -1,13 +1,13 @@
 {
   "name": "atlassian-twg-cli",
   "displayName": "Atlassian Teamwork Graph CLI",
-  "version": "1.0.13",
-  "description": "Teamwork Graph CLI is Atlassian's agent-first interface to your entire work context: Jira issues, Confluence pages, Bitbucket PRs, along with your connected third-party data sources. Purpose-built for coding agents like Antigravity (terminal or desktop), and powered by Atlassian's context graph. Try: \"draft a Jira issue from this PR and link it to the epic.\" Using Gemini in the browser? Install the Atlassian Rovo MCP plugin instead. Run /twg-setup after install to connect Atlassian Teamwork Graph CLI to Antigravity.",
+  "version": "1.0.14",
+  "description": "Teamwork Graph CLI is Atlassian's agent-first interface to your entire work context: Jira issues, Confluence pages, Bitbucket PRs, along with your connected third-party data sources. Purpose-built for coding agents like Antigravity (terminal or desktop), and powered by Atlassian's context graph. Try: \"draft a Jira issue from this PR and link it to the epic.\" Run /twg-setup after install to connect Atlassian Teamwork Graph CLI to Antigravity.",
   "logo": "./assets/twg-logo.png",
   "suggestedPrompts": [
-    "Set up TWG CLI",
-    "Summarize my last 7 days: workstreams, key people, blockers, next actions. Use `twg work query` and `twg collaborators`.",
-    "I was away for [N days]. Catch me up on [topic]: updates, decisions, blockers, replies, next actions."
+    "Help me implement [JIRA-123]. Retrieve the requirements, acceptance criteria, and linked design decisions. Inspect this repository and propose an implementation plan before changing code.",
+    "Investigate [JIRA-123] in this repository. Find related bugs, previous fixes, and relevant technical decisions. Recommend a fix and the tests needed to verify it.",
+    "Review my current changes against [JIRA-123] and its linked specification. Flag missed requirements, conflicting decisions, and missing tests."
   ],
   "keywords": [
     "atlassian",
