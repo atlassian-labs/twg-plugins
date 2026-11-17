@@ -1,8 +1,8 @@
 {
   "name": "twg",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "requires_local_executor": true,
-  "description": "Teamwork Graph CLI is Atlassian's agent-first interface to your entire work context: Jira issues, Confluence pages, Bitbucket PRs, along with your connected third-party data sources. Purpose-built for coding agents like ChatGPT Work & Codex (terminal or desktop), and powered by Atlassian's context graph. Try: \"draft a Jira issue from this PR and link it to the epic.\" Using ChatGPT in the browser? Install the Atlassian Rovo MCP plugin instead. Run /twg-setup after install to connect Atlassian Teamwork Graph CLI to ChatGPT Work or Codex.",
+  "description": "Your code lives in your repo. The reasons behind it are spread across Jira work items, Confluence specs, pull requests, incidents, Loom videos, and Slack threads.\n\nTeamwork Graph CLI (twg) gives Codex one command-line interface to that context.\n\n- One graph across your tools: Teamwork Graph maps the work items, docs, PRs, people and decisions across Jira, Confluence, Bitbucket, Jira Service Management, Loom, GitHub, Slack, Google Drive and Salesforce.\n- Built for agents: Codex runs twg commands to retrieve structured JSON, pulling in only the context needed for the task. Start with a work item, follow it to the linked spec, then the related PR.\n- Easy to script: Output is structured JSON, so you can script it, pipe it, or use it in CI.\n- Runs as you: Commands use your Atlassian sign-in, so Codex can only access what you have permission to see.\n\nHow it works:\n1. Install the plugin.\n2. Run /twg-setup to install twg and sign in with your Atlassian account.\n3. Ask in plain English. Codex picks the right twg command and runs it.\n\nUsing ChatGPT in the browser? Install the Atlassian Rovo MCP plugin instead.\n\nTry it:\n- \"Draft a Jira work item from this PR and link it to the epic\"\n- \"Find the Confluence spec for this service and check my branch against it\"\n- \"What changed on <insert name> project since I last touched it? Include linked PRs\"",
   "author": {
     "name": "Atlassian",
     "url": "https://www.atlassian.com"
@@ -36,8 +36,8 @@
     "logo": "./assets/twg-logo.png",
     "logoDark": "./assets/twg-logo-dark.png",
     "composerIcon": "./assets/twg-logo.png",
-    "shortDescription": "Atlassian Context Graph as CLI",
-    "longDescription": "Teamwork Graph CLI is Atlassian's agent-first interface to your entire work context: Jira issues, Confluence pages, Bitbucket PRs, along with your connected third-party data sources. Purpose-built for coding agents like ChatGPT Work & Codex (terminal or desktop), and powered by Atlassian's context graph. Try: \"draft a Jira issue from this PR and link it to the epic.\" Using ChatGPT in the browser? Install the Atlassian Rovo MCP plugin instead. Run /twg-setup after install to connect Atlassian Teamwork Graph CLI to ChatGPT Work or Codex.",
+    "shortDescription": "Work context for coding agents",
+    "longDescription": "Your code lives in your repo. The reasons behind it are spread across Jira work items, Confluence specs, pull requests, incidents, Loom videos, and Slack threads.\n\nTeamwork Graph CLI (twg) gives Codex one command-line interface to that context.\n\n- One graph across your tools: Teamwork Graph maps the work items, docs, PRs, people and decisions across Jira, Confluence, Bitbucket, Jira Service Management, Loom, GitHub, Slack, Google Drive and Salesforce.\n- Built for agents: Codex runs twg commands to retrieve structured JSON, pulling in only the context needed for the task. Start with a work item, follow it to the linked spec, then the related PR.\n- Easy to script: Output is structured JSON, so you can script it, pipe it, or use it in CI.\n- Runs as you: Commands use your Atlassian sign-in, so Codex can only access what you have permission to see.\n\nHow it works:\n1. Install the plugin.\n2. Run /twg-setup to install twg and sign in with your Atlassian account.\n3. Ask in plain English. Codex picks the right twg command and runs it.\n\nUsing ChatGPT in the browser? Install the Atlassian Rovo MCP plugin instead.\n\nTry it:\n- \"Draft a Jira work item from this PR and link it to the epic\"\n- \"Find the Confluence spec for this service and check my branch against it\"\n- \"What changed on \\<insert name> project since I last touched it? Include linked PRs\"",
     "developerName": "Atlassian",
     "category": "Productivity",
     "capabilities": [
@@ -49,9 +49,9 @@
     "privacyPolicyURL": "https://www.atlassian.com/legal/privacy-policy",
     "termsOfServiceURL": "https://www.atlassian.com/legal/cloud-terms-of-service",
     "defaultPrompt": [
-      "Set up TWG CLI",
-      "Summarize my last 7 days: workstreams, key people, blockers, next actions. Use `twg work query` and `twg collaborators`.",
-      "I was away for [N days]. Catch me up on [topic]: updates, decisions, blockers, replies, next actions."
+      "Draft a Jira work item from this PR and link it to the epic",
+      "Find the Confluence spec for this service and check my branch against it",
+      "What changed on <insert name> project since I last touched it? Include linked PRs"
     ],
     "brandColor": "#0052CC",
     "screenshots": []
