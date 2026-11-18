@@ -1,7 +1,7 @@
 {
   "name": "atlassian-twg-cli",
-  "version": "1.0.14",
-  "description": "Teamwork Graph CLI is Atlassian's agent-first interface to your entire work context: Jira issues, Confluence pages, Bitbucket PRs, along with your connected third-party data sources. Purpose-built for coding agents like Grok Build, and powered by Atlassian's context graph. Run /twg-setup after install to connect Atlassian Teamwork Graph CLI to Grok Build.",
+  "version": "1.0.15",
+  "description": "Your code lives in your repo. The reasons behind it are spread across Jira work items, Confluence specs, pull requests, incidents, Loom videos and Slack threads. Teamwork Graph CLI (twg) gives Grok Build one command-line interface to that context.\n\n- One graph across your tools. Teamwork Graph maps the work items, docs, PRs, people and decisions across Jira, Confluence, Bitbucket, Jira Service Management, Loom, GitHub, Slack, Google Drive and Salesforce.\n- Built for agents. Grok Build runs twg commands to get structured JSON, pulling in only the context the task needs.\n- Easy to script. Output is structured JSON, so you can script it, pipe it, or use it in CI.\n- Runs as you. Commands use your Atlassian sign-in, so Grok Build can only access what you have permission to see.\n\nHow it works:\n1. Install the plugin.\n2. Run /twg-setup to install twg and sign in with your Atlassian account.\n3. Ask in plain English. Grok Build picks the right twg command and runs it.",
   "author": {
     "name": "Atlassian",
     "url": "https://www.atlassian.com"

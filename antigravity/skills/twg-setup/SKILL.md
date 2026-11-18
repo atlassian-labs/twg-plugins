@@ -6,6 +6,11 @@ allowed-tools: Bash
 
 # TWG Setup
 
+For coding-agent TWG calls after installation, set `TWG_AGENT_DEFAULTS=1` in
+the host environment or use `TWG_AGENT_DEFAULTS=1 twg <command>`. If the host
+blocks environment assignments, pass `--mode agent` instead.
+Do not change host permissions to add a prefix.
+
 Recognized installer hosts: `antigravity`, `claude-code`, `codex`, `copilot`, `cursor`, `devin`, `gemini`, `hermes`, `intellij`, `opencode`, `pi`, `qoder`, `vscode`.
 
 ## Unix / macOS

@@ -1,8 +1,8 @@
 {
   "name": "atlassian-twg-cli",
   "displayName": "Atlassian Teamwork Graph CLI",
-  "version": "1.0.14",
-  "description": "Teamwork Graph CLI is Atlassian's agent-first interface to your entire work context: Jira issues, Confluence pages, Bitbucket PRs, along with your connected third-party data sources. Purpose-built for coding agents like Cursor (terminal or desktop), and powered by Atlassian's context graph. Try: \"draft a Jira issue from this PR and link it to the epic.\" Using Cursor in the browser? Install the Atlassian Rovo MCP plugin instead. Run /twg-setup after install to connect Atlassian Teamwork Graph CLI to Cursor.",
+  "version": "1.0.15",
+  "description": "Cursor knows your codebase. The reasons behind the code are spread across Jira work items, Confluence specs, pull requests, incidents, Loom videos and Slack threads. Teamwork Graph CLI (twg) gives Cursor's agent one command-line interface to that context.\n\n- One graph across your tools. Teamwork Graph maps the work items, docs, PRs, people and decisions across Jira, Confluence, Bitbucket, Jira Service Management, Loom, Goals, GitHub, Slack, Google Drive and Salesforce.\n- Built for agents. Cursor runs twg commands to get structured JSON, pulling in only the context the task needs. It can read the work item before writing code, check the spec before opening a PR, or find who owns a service before changing it.\n- Easy to script. Output is structured JSON, so you can script it, pipe it, or use it in CI.\n- Runs as you. Commands use your Atlassian sign-in, so Cursor can only access what you have permission to see.\n\nHow it works:\n1. Install the plugin.\n2. Run /twg-setup to install twg and sign in with your Atlassian account.\n3. Ask in plain English. Cursor picks the right twg command and runs it.\n\nTry it:\n- \"Read <insert name> project and its linked spec, then implement it\"\n- \"Who owns this service, and what's changed on it recently?\"\n- \"Draft a Jira work item from this PR and link it to the epic\"",
   "author": {
     "name": "Atlassian"
   },
